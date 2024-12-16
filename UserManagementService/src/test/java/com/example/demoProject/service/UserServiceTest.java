@@ -79,5 +79,6 @@ public class UserServiceTest {
 
       String usernamePassword=userService.userLogin("gopi","gopi12");
       assertEquals("login successfully by given the username and password",usernamePassword);
+
   }
 }
