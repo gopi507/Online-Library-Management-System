@@ -3,6 +3,7 @@ package com.example.demoProject.controller;
 import com.example.demoProject.model.Users;
 import com.example.demoProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,17 +14,22 @@ public class UsersController {
     @Autowired
     UserService userService;
 
+
     @GetMapping("/getAllUserDetails")
     public List<Users> getAllUserDetails(){
         return userService.getAllUsers();
 
     }
-    @PostMapping("userLogin/{userName}/{password}")
-
-    public String userLogin(@PathVariable("userName") String userName,@PathVariable("password") String password){
-
-      return userService.userLogin(userName,password);
-    }
+//    @PostMapping("userLogin/{userName}/{password}")
+//
+//    public String userLogin(@PathVariable("userName") String userName,@PathVariable("password") String password){
+//
+//      return userService.userLogin(userName,password);
+//    }
+ @PostMapping("/userLogin")
+   public String userLogin() {
+    return userService.userLogin();
+}
     @GetMapping("/getUserById/{id}")
     public Users getUserById(@PathVariable("id") int id){
         return  userService.getByUserId(id);
@@ -34,6 +40,7 @@ public class UsersController {
     }
     @PostMapping("/registerUsers")
     public Users registerUsers(@RequestBody Users user){
+
         return  userService.userRegister(user);
     }
     @PutMapping("/updateUsers")

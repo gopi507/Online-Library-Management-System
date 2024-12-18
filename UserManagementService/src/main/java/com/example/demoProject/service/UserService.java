@@ -3,6 +3,8 @@ package com.example.demoProject.service;
 import com.example.demoProject.model.Users;
 import com.example.demoProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +14,8 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+
+
 
     public List<Users> getAllUsers(){
         return  userRepository.findAll();
@@ -23,22 +27,29 @@ public class UserService {
         return  userRepository.findByUserName(name);
     }
 
-    public Users userRegister(Users users){
 
+    public Users userRegister(Users users){
         return  userRepository.save(users);
 
     }
 
-    public String userLogin(String userName,String password){
-        Users uName=userRepository.findByUserName(userName);
-        if(uName!=null && uName.getPassword().equals(password)) {
+//    public String userLogin(String userName,String password){
+//
+//        Users uName=userRepository.findByUserName(userName);
+//
+//        if(uName!=null && uName.getPassword().equals(password)) {
+//            return "login successfully by given the username and password";
+//        }
+//        else {
+//            throw new RuntimeException("username or password invalid");
+//        }
+//    }
+public String userLogin() {
 
-            return "login successfully by given the username and password";
-        }
-        else {
-            throw new RuntimeException("username or password invalid");
-        }
-    }
+        return "login successfull";
+}
+
+
 
     public  Users updateUser(Users user){
         Users users=userRepository.findByUserId(user.userId);

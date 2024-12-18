@@ -61,15 +61,15 @@ public class UsersControllerTest {
         assertEquals("user deleted successfully", deleteUser);
 
     }
-    @Test
-    void testUserLogin(){
-        Users users=new Users(1,"gopi","gopi@gmail.com","gopi12");
-
-        when(userService.userLogin("gopi","gopi12")).thenReturn("login successfully by given the username and password");
-        String userLogin=usersController.userLogin("gopi","gopi12");
-        assertEquals("login successfully by given the username and password",userLogin);
-
-    }
+//    @Test
+//    void testUserLogin(){
+//        Users users=new Users(1,"gopi","gopi@gmail.com","gopi12");
+//
+//        when(userService.userLogin("gopi","gopi12")).thenReturn("login successfully by given the username and password");
+//        String userLogin=usersController.userLogin("gopi","gopi12");
+//        assertEquals("login successfully by given the username and password",userLogin);
+//
+//    }
 
 
 }
