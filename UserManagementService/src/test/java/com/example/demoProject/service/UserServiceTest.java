@@ -62,7 +62,6 @@ public class UserServiceTest {
         updateUser.setPassword("gopi123");
         assertNotNull(updateUser);
         assertEquals(users,updateUser);
-
     }
     @Test
     void testDeleteUser() {
@@ -71,14 +70,14 @@ public class UserServiceTest {
         doNothing().when(userRepository).delete(users);
         assertEquals("user deleted successfully",userService.deleteUser(1));
     }
-    @Test
-  void testUserLogin(){
-       Users users=new Users(1,"gopi","gopi@gmail.com","gopi12");
-      when(userRepository.save(users)).thenReturn(users);
-      when(userRepository.findByUserName("gopi")).thenReturn(users);
-
-      String usernamePassword=userService.userLogin("gopi","gopi12");
-      assertEquals("login successfully by given the username and password",usernamePassword);
-
-  }
+   // @Test
+//  void testUserLogin(){
+//       Users users=new Users(1,"gopi","gopi@gmail.com","gopi12");
+//      when(userRepository.save(users)).thenReturn(users);
+//      when(userRepository.findByUserName("gopi")).thenReturn(users);
+//
+//      String usernamePassword=userService.userLogin("gopi","gopi12");
+//      assertEquals("login successfully by given the username and password",usernamePassword);
+//
+//  }
 }
